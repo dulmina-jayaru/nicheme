@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NicheMe
 
-## Getting Started
+<div align="center">
+  <img src="public/logo.png" alt="NicheMe Logo" width="200" height="auto" />
+  <p><em>The ultimate creative co-pilot for digital content creators</em></p>
+</div>
 
-First, run the development server:
+## 📋 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**NicheMe** is a subscription-based SaaS application designed to eliminate creative blocks and strategic guesswork for digital content creators. Using AI and real-time trend analysis, NicheMe provides an endless stream of relevant, data-driven content ideas and undiscovered, high-potential niches.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Our platform targets YouTubers, TikTokers, bloggers, and social media managers who feel overwhelmed by the constant pressure to generate fresh, engaging content. Unlike generic idea lists or complex SEO tools, NicheMe focuses on providing a simple, beautiful, and highly focused user experience.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### For All Users
 
-## Learn More
+- **🧠 AI Idea Generator**
+  - Enter a broad topic and receive specific, actionable content ideas
+  - Each idea includes a brief description, potential talking points, and suggested format
 
-To learn more about Next.js, take a look at the following resources:
+- **🔍 Niche Discovery Tool**
+  - Explore related niches with data on audience size and competition level
+  - "Niche Score" helps identify promising areas to expand into
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **💾 Idea Management**
+  - Save and organize your favorite content ideas
+  - Track which ideas you've already implemented
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Pro Features
 
-## Deploy on Vercel
+- **📈 Real-Time Trend Analysis**
+  - Connect to Google Trends and social media APIs
+  - Identify breakout topics and trending keywords relevant to your niche
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **🎯 Personalized Suggestions**
+  - AI learns your preferences and suggests ideas tailored to your style
+  - "For You" section that gets smarter over time
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 14+](https://nextjs.org/) (App Router)
+- **UI Components**: [Shadcn/ui](https://ui.shadcn.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Authentication**: [Clerk](https://clerk.com/)
+- **Database & Backend**: [Supabase](https://supabase.com/)
+- **AI Integration**: [OpenAI API](https://openai.com/) (GPT-4o) / [Google Gemini API](https://ai.google.dev/)
+- **Payments**: [Stripe](https://stripe.com/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 💰 Subscription Model
+
+### Free Tier ("Spark")
+- **Price**: $0/month
+- **Features**:
+  - 10 AI idea generations per month
+  - Limited access to Niche Discovery
+  - Save up to 5 ideas
+
+### Pro Tier ("Creator")
+- **Price**: $9/month (or $90/year)
+- **Features**:
+  - Unlimited AI idea generations
+  - Full access to Niche Discovery
+  - Access to real-time Trend Analysis
+  - Save unlimited ideas
+  - Priority support
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or higher
+- npm or yarn
+- Supabase account
+- Clerk account
+- OpenAI API key or Google Gemini API key
+- Stripe account (for handling payments)
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/nicheme.git
+   cd nicheme
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Set up environment variables
+   ```bash
+   cp .env.example .env.local
+   ```
+   Then edit `.env.local` with your API keys and configuration
+
+4. Run the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 📝 Development Roadmap
+
+### Phase 1: MVP (Weeks 1-3)
+- Set up Next.js project with Tailwind CSS
+- Integrate Clerk for authentication
+- Build the AI Idea Generator
+- Connect to AI APIs
+- Create Free Tier logic
+- Deploy on Vercel
+
+### Phase 2: Core Value (Weeks 4-6)
+- Build the Niche Discovery Tool
+- Integrate Supabase for data storage
+- Set up Stripe for subscriptions
+- Develop Pro Tier features
+
+### Phase 3: Launch (Weeks 7-8)
+- Create marketing landing page
+- Launch on Product Hunt and other platforms
+- Implement Trend Analysis feature
+- Set up feedback channels
+
+### Phase 4: Ongoing Development
+- Develop Personalized Suggestions
+- Refine AI prompts
+- Add integrations with other platforms
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📬 Contact
+
+For support or inquiries, please contact us at support@nicheme.com or join our [Discord community](https://discord.gg/nicheme).
+
+---
+
+<div align="center">
+  <p>Built with ❤️ by the Dulmina Geeganage</p>
+</div>

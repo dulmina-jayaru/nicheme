@@ -1,22 +1,37 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useSignIn, useSignUp } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 
 export default function SSOCallbackPage() {
   const router = useRouter();
+  const { isLoaded: isSignInLoaded, signIn } = useSignIn();
+  const { isLoaded: isSignUpLoaded, signUp } = useSignUp();
+  const [error, setError] = useState<string | null>(null);
   
   useEffect(() => {
-    // The Clerk client-side SDK will automatically handle the callback
-    // We just need to wait a moment and then redirect to dashboard
-    // This is because Clerk's JS will take care of setting the session
-    const timer = setTimeout(() => {
-      router.push("/dashboard");
-    }, 2000);
+    if (!isSignInLoaded || !isSignUpLoaded || !signIn || !signUp) return;
     
-    return () => clearTimeout(timer);
-  }, [router]);
+    async function handleCallback() {
+      try {
+        
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 2000);
+      } catch (err) {
+        console.error("Error handling OAuth callback:", err);
+        setError("Authentication failed. Please try again.");
+        
+        setTimeout(() => {
+          router.push("/sign-in");
+        }, 3000);
+      }
+    }
+    
+    handleCallback();
+  }, [isSignInLoaded, isSignUpLoaded, router, signIn, signUp]);
   
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
@@ -24,6 +39,12 @@ export default function SSOCallbackPage() {
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
         <h1 className="text-xl font-semibold">Processing authentication...</h1>
         <p className="text-muted-foreground">You will be redirected shortly</p>
+        
+        {error && (
+          <div className="mt-4 rounded-md bg-destructive/15 p-3 text-sm text-destructive">
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );

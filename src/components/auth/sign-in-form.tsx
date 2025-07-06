@@ -55,6 +55,10 @@ export function SignInForm() {
     
     try {
       setIsLoading(true);
+      setErrorMessage("");
+      
+      // For OAuth, we don't need to create a sign-in attempt first
+      // Just directly authenticate with redirect
       await signIn.authenticateWithRedirect({
         strategy: provider,
         redirectUrl: "/sso-callback",
@@ -82,6 +86,9 @@ export function SignInForm() {
           {successMessage}
         </div>
       )}
+      
+      {/* Clerk CAPTCHA element */}
+      <div id="clerk-captcha" className="hidden"></div>
 
       {/* Email/Password form */}
       <form onSubmit={handleSubmit} className="space-y-4">

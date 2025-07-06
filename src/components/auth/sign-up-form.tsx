@@ -85,6 +85,10 @@ export function SignUpForm() {
     
     try {
       setIsLoading(true);
+      setErrorMessage("");
+      
+      // For OAuth, we don't need to create a sign-up attempt first
+      // Just directly authenticate with redirect
       await signUp.authenticateWithRedirect({
         strategy: provider,
         redirectUrl: "/sso-callback",
@@ -112,6 +116,9 @@ export function SignUpForm() {
           {successMessage}
         </div>
       )}
+
+      {/* Clerk CAPTCHA element */}
+      <div id="clerk-captcha" className="hidden"></div>
 
       {!pendingVerification ? (
         <>
